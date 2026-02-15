@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+  /* Warm, retro color palette inspired by 70s aesthetics */
+  --bg-primary: #f5e6d3;
+  --bg-secondary: #fef4e8;
+  --bg-card: #fff9f0;
+  --accent-orange: #e07d4c;
+  --accent-peach: #f4a261;
+  --accent-cream: #f8f1e5;
+  --text-primary: #4a3426;
+  --text-secondary: #7d6854;
+  --border: #e8d5c0;
+  --shadow: rgba(224, 125, 76, 0.1);
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
