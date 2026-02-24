@@ -102,6 +102,25 @@ export default function ExpensesPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router]);
 
+  // 2a) Real-time subscription: reload whenever any expense changes
+  useEffect(() => {
+    const channel = supabase
+      .channel("expenses-realtime")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "expenses" },
+        () => {
+          loadExpenses();
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // 2) Read from Supabase
   async function loadExpenses() {
     setLoading(true);
