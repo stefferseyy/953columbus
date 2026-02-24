@@ -570,6 +570,43 @@ export default function ExpensesPage() {
         </button>
       </div>
 
+      {/* Nav tabs */}
+      <nav style={{
+        display: "flex",
+        gap: 4,
+        marginBottom: 24,
+        borderBottom: "2px solid var(--border)"
+      }}>
+        <a
+          href="/expenses"
+          style={{
+            padding: "10px 20px",
+            fontSize: 15,
+            fontWeight: 600,
+            color: "var(--accent-orange)",
+            borderBottom: "2px solid var(--accent-orange)",
+            marginBottom: -2,
+            textDecoration: "none"
+          }}
+        >
+          Expenses
+        </a>
+        <a
+          href="/photos"
+          style={{
+            padding: "10px 20px",
+            fontSize: 15,
+            fontWeight: 600,
+            color: "var(--text-secondary)",
+            borderBottom: "2px solid transparent",
+            marginBottom: -2,
+            textDecoration: "none"
+          }}
+        >
+          Photos
+        </a>
+      </nav>
+
       {/* Running Balance Summary */}
       {(() => {
         const balance = calculateBalance();
